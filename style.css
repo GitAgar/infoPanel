@@ -56,17 +56,6 @@ th {
   position: relative;
 }
 
-.header_title {
-  font-family: Posterama;
-  text-transform: uppercase;
-  font-size: 120px;
-  font-weight: 300;
-  text-align: center;
-  position: relative;
-
-  color: #eb0000;
-}
-
 #id_clock {
   margin: 0px;
   position: absolute;
@@ -110,7 +99,7 @@ th {
   font-size: 1.5em;
 }
 
-.flag img{
+.flag img {
   display: block;
   height: auto;
 }
@@ -184,7 +173,7 @@ th {
 }
 
 .slide.is-active {
-    opacity: 1;
+  opacity: 1;
 }
 
 .tenant-table {
@@ -224,6 +213,31 @@ th {
 
 .slider-nav {
   display: none !important;
+}
+
+.waviy {
+  font-family: Posterama;
+  text-transform: uppercase;
+  font-size: 120px;
+  font-weight: 300;
+  text-align: center;
+  position: relative;
+}
+.waviy span {
+  position: relative;
+  display: inline-block;
+  font-size: 120px;
+  color: #eb0000;
+  text-transform: uppercase;
+  animation: flip 8s infinite;
+  animation-delay: calc(0.2s * var(--i));
+}
+
+@keyframes flip {
+  0%,
+  80% {
+    transform: rotateY(360deg);
+  }
 }
 
 /* Анимация появления */
