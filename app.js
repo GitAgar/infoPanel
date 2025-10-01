@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // ID Гугл таблицы
   const SHEET_ID =
-    "2PACX-1vRVY92N8UJmHpxWOP9mfjMCsZEzxBqT6Xo6k4p12xPAsT9EqVI4IqBM2qRM7IibZYIi2w8DpO4_q25z";
+    "2PACX-1vTd3c3JoxXP3VnlBWg0Uaz-En_t-bMA0gH76Rk2fwmMFuYSX_Sw5vnpRbohuGmCI4jfeqAmJ4BaWAiD";
   const URL = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
 
   const track = document.querySelector(".slider-track");
@@ -208,7 +208,12 @@ fetchRates();
     }
   }
   reloadWeather();
-// Обновляем каждые 2 часа
 const TWO_HOURS_IN_MS = 2 * 60 * 60 * 1000;
 setInterval(reloadWeather, TWO_HOURS_IN_MS);
 
+
+// Автоматическое полное обновление страницы на 10 часов
+const TEN_HOURS_IN_MS = 10 * 60 * 60 * 1000;
+setTimeout(function () {
+  location.reload();
+}, TEN_HOURS_IN_MS);
