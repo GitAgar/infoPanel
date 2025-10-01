@@ -211,10 +211,6 @@ th {
   width: 22%;
 }
 
-.slider-nav {
-  display: none !important;
-}
-
 .waviy {
   font-family: Posterama;
   text-align: center;
@@ -252,3 +248,4 @@ th {
     transform: translateY(0);
   }
 }
+
