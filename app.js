@@ -201,15 +201,13 @@ async function fetchRates() {
 }
 fetchRates();
 
-// Флаги для валют
-const getFlagEmoji = (countryCode) =>
-  String.fromCodePoint(
-    ...[...countryCode.toUpperCase()].map((c) => 127397 + c.charCodeAt())
-  );
-
 // Автоматическое обновление погоды каждые 2 часа
-function reloadWeather() {
-  if (window.__weatherwidget_init) window.__weatherwidget_init();
-}
+  function reloadWeather() {
+    if (window.__weatherwidget_init) {
+      window.__weatherwidget_init();
+    }
+  }
+  reloadWeather();
 // Обновляем каждые 2 часа
-setInterval(reloadWeather, 2 * 60 * 60 * 1000);
+const TWO_HOURS_IN_MS = 2 * 60 * 60 * 1000;
+setInterval(reloadWeather, TWO_HOURS_IN_MS);
