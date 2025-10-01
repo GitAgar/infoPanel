@@ -217,15 +217,16 @@ th {
 
 .waviy {
   font-family: Posterama;
-  text-transform: uppercase;
-  font-size: 120px;
-  font-weight: 300;
   text-align: center;
   position: relative;
+  font-size: 0;
+
 }
 .waviy span {
   position: relative;
   display: inline-block;
+  text-transform: uppercase;
+  font-weight: 300;
   font-size: 120px;
   color: #eb0000;
   text-transform: uppercase;
