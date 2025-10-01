@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   // ID Гугл таблицы
   const SHEET_ID =
-    "2PACX-1vRVY92N8UJmHpxWOP9mfjMCsZEzxBqT6Xo6k4p12xPAsT9EqVI4IqBM2qRM7IibZYIi2w8DpO4_q25z";
+    "2PACX-1vTd3c3JoxXP3VnlBWg0Uaz-En_t-bMA0gH76Rk2fwmMFuYSX_Sw5vnpRbohuGmCI4jfeqAmJ4BaWAiD";
   const URL = `https://docs.google.com/spreadsheets/d/e/${SHEET_ID}/pub?output=csv`;
 
   const track = document.querySelector(".slider-track");
@@ -184,11 +184,6 @@ digitalClock();
   }
 })(document, "script", "weatherwidget-io-js");
 
-// Автоматическое обновление страницы каждые 2 часа
-setTimeout(() => {
-  location.reload();
-}, 2 * 60 * 60 * 1000); // 2 часа
-
 // Валюта
 async function fetchRates() {
   try {
@@ -212,3 +207,9 @@ const getFlagEmoji = (countryCode) =>
     ...[...countryCode.toUpperCase()].map((c) => 127397 + c.charCodeAt())
   );
 
+// Автоматическое обновление погоды каждые 2 часа
+function reloadWeather() {
+  if (window.__weatherwidget_init) window.__weatherwidget_init();
+}
+// Обновляем каждые 2 часа
+setInterval(reloadWeather, 2 * 60 * 60 * 1000);
