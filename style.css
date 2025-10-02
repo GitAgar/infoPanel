@@ -1,9 +1,4 @@
 @font-face {
-  font-family: Posterama;
-  src: url(Posterama.otf);
-}
-
-@font-face {
   font-family: digitalcyrillic1;
   src: url(digitalcyrillic1.otf);
 }
@@ -138,7 +133,10 @@ th {
   color: #ffffff;
   font-size: 45px;
   text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
 }
+
+
 
 .slider-content {
   display: flex;
@@ -212,7 +210,6 @@ th {
 }
 
 .waviy {
-  font-family: Posterama;
   text-align: center;
   position: relative;
   font-size: 0;
@@ -221,15 +218,13 @@ th {
 .waviy span {
   position: relative;
   display: inline-block;
-  text-transform: uppercase;
-  font-weight: 300;
-  font-size: 120px;
   color: #eb0000;
-  text-transform: uppercase;
   animation: flip 8s infinite;
   animation-delay: calc(0.2s * var(--i));
+  width: 90px;
 }
 
+/* Анимация поворота лого */
 @keyframes flip {
   0%,
   80% {
@@ -249,3 +244,7 @@ th {
   }
 }
 
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}

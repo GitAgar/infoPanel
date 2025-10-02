@@ -37,7 +37,28 @@ document.addEventListener("DOMContentLoaded", async () => {
     const rows = text.split(/\r\n|\n/).slice(1);
     return rows
       .map((row) => {
-        const values = row.split(",");
+        const values = [];
+        let current = "";
+        let insideQuotes = false;
+
+        for (let i = 0; i < row.length; i++) {
+          const char = row[i];
+
+          if (char === '"') {
+            if (insideQuotes && row[i + 1] === '"') {
+              current += '"';
+              i++;
+            } else {
+              insideQuotes = !insideQuotes;
+            }
+          } else if (char === "," && !insideQuotes) {
+            values.push(current.trim());
+            current = "";
+          } else {
+            current += char;
+          }
+        }
+        values.push(current.trim());
         if (values.length >= 3) {
           return {
             slide: values[0].trim(),
@@ -202,19 +223,17 @@ async function fetchRates() {
 fetchRates();
 
 // Автоматическое обновление погоды каждые 2 часа
-  function reloadWeather() {
-    if (window.__weatherwidget_init) {
-      window.__weatherwidget_init();
-    }
+function reloadWeather() {
+  if (window.__weatherwidget_init) {
+    window.__weatherwidget_init();
   }
-  reloadWeather();
+}
+reloadWeather();
 const TWO_HOURS_IN_MS = 2 * 60 * 60 * 1000;
 setInterval(reloadWeather, TWO_HOURS_IN_MS);
-
 
 // Автоматическое полное обновление страницы на 10 часов
 const TEN_HOURS_IN_MS = 10 * 60 * 60 * 1000;
 setTimeout(function () {
   location.reload();
 }, TEN_HOURS_IN_MS);
-
