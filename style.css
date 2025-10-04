@@ -47,7 +47,7 @@ td {
 }
 
 tr:nth-child(2n) {
-  background-color: rgba(96, 104, 108, 0.15);
+  background-color: rgba(96, 104, 108, 0.03);
 }
 
 th {
@@ -261,3 +261,4 @@ th {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
 }
+
