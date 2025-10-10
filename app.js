@@ -188,7 +188,7 @@ function digitalClock() {
   if (minutes < 10) minutes = "0" + minutes;
   if (seconds < 10) seconds = "0" + seconds;
   document.getElementById("id_clock").innerHTML =
-    hours + ":" + minutes + ":" + seconds;
+    (hours - 1) + ":" + minutes + ":" + seconds;
   setTimeout(digitalClock, 1000);
 }
 digitalClock();
@@ -237,3 +237,4 @@ const TEN_HOURS_IN_MS = 10 * 60 * 60 * 1000;
 setTimeout(function () {
   location.reload();
 }, TEN_HOURS_IN_MS);
+
