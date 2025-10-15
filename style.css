@@ -256,9 +256,10 @@ th {
 
 /* Анимация поворота лого */
 @keyframes flip {
-  0%   { transform: scale(1) rotate(0deg); opacity: 0.7; }
-  50%  { transform: scale(1.1) rotate(180deg); opacity: 1; }
-  100% { transform: scale(1) rotate(360deg); opacity: 0.7; }
+  0%,
+  80% {
+    transform: rotateY(360deg);
+  }
 }
 
 /* Анимация появления */
@@ -277,4 +278,5 @@ th {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.7; }
 }
+
 
